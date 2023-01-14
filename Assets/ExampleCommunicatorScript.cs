@@ -7,6 +7,7 @@ public class ExampleCommunicatorScript : MonoBehaviour
 {
     public SingularityManager mySingularityManager;
     DeviceSignature myDevice;
+
     
     // Start is called before the first frame update
     void Start()
@@ -33,9 +34,32 @@ public class ExampleCommunicatorScript : MonoBehaviour
         }
     }
 
-    public void SendMessageFromInteraction(string message){
-        mySingularityManager.sendMessage(message + "\n", myDevice);
+    public void SendMessageAsHolding(string message)
+    {
+        if (message == "OBJ1_HOLD")
+        {
+            mySingularityManager.sendMessage(message + "\n", myDevice);
+        }
+        else if (message == "OBJ1_HOLD")
+        {
+            mySingularityManager.sendMessage(message + "\n", myDevice);
+        }
+
     }
+
+    public void SendMessageAsRelasing(string message)
+    {
+        if (message == "OBJ1_RELEASE")
+        {
+            mySingularityManager.sendMessage(message + "\n", myDevice);
+        }
+        else if (message == "OBJ1_RELEASE")
+        {
+            mySingularityManager.sendMessage(message + "\n", myDevice);
+        }
+
+    }
+
     // Update is called once per frame
     void Update()
     {
