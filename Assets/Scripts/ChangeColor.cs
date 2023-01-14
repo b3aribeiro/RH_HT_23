@@ -14,6 +14,6 @@ public class ChangeColor : MonoBehaviour
     }
 
     public void ChangeObjectColor(){
-        rend.material.SetColor("_Color", Color.red);
+        rend.material.SetColor("_Color", Color.blue);
     }
 }
