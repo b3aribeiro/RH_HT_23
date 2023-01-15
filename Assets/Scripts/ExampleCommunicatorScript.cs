@@ -13,7 +13,6 @@ public class ExampleCommunicatorScript : MonoBehaviour
     public bool isHolding = false;
     public CheckCollisionWithItem checkCollisionWithItem;
     
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -41,11 +40,15 @@ public class ExampleCommunicatorScript : MonoBehaviour
 
     public void SendMessageAsHolding(string message)
     {
-
-        if(objectHoldingManager.buttonPressed == true && objectHoldingManager.touchingObject != null){
-            print ("here");       
+        print ("BTEST: SENDMESSAGEHOLDING CALLED");    
+        print ("BTEST: THIS IS MESSAGE: " + message); 
+        if(message == "LEFT" || message == "MIDDLE" || message == "RIGHT" ){   
+            mySingularityManager.sendMessage(message + "\n", myDevice);
+            print ("BUTTONPRESSED TRUE TOUCHING NOT NULL AND MESSAGE IS" + message);  
+        } else {
+            print ("BTEST: SENDMESSAGEHOLDING MISSING BUTTON OR OBJ");  
         }
-        
+
         // if(isHolding == true && (message == "OBJ1_HOLD" || message == "OBJ2_HOLD" || message == "OBJ3_HOLD")) 
         // {
         //     mySingularityManager.sendMessage(message + "\n", myDevice);

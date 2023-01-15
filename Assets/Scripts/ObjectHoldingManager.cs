@@ -9,13 +9,16 @@ public class ObjectHoldingManager : MonoBehaviour
 
     public void onButtonPressed()
     {
-        buttonPressed = true;
-        //print ("BTEST: BUTTON PRESS TRUE");   
+        //buttonPressed = true;
+        print ("BTEST: PRESS SHOULD BE TRUE BUT IS: " + buttonPressed);   
+        print ("BTEST: AND OBJECT NAME FOR PRESSED: " + touchingObject.name);   
     }
 
     public void onButtonReleased()
     {
-        buttonPressed = false;
-        //print ("BTEST: BUTTON PRESS FALSE");   
+        //buttonPressed = false;
+        print ("BTEST: BUTTON PRESS SHOULD BE FALSE BUT IS: " + buttonPressed);   
+        print ("BTEST: AND OBJECT NAME IS FOR RELEASED: " + touchingObject.name);   
     }
+
 }

@@ -7,14 +7,23 @@ public class IdentifyTouchedItem : MonoBehaviour
 {
     public ObjectHoldingManager objectHoldingManager;
 
+    public ExampleCommunicatorScript exampleCommunicatorScript;
+
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Objects"){
+        if(other.tag == "Objects" && objectHoldingManager.buttonPressed == true){
             objectHoldingManager.touchingObject = other.gameObject;
-            //mySingularityManager.sendMessage(objectHoldingManager.touchingObject.name + "\n", myDevice);
-            print ("BTEST: TRIGGER ENTER IS:" + objectHoldingManager.touchingObject.name);  
-        } else {
+            exampleCommunicatorScript.SendMessageAsHolding(objectHoldingManager.touchingObject.name);
+        }
+        
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+       if(objectHoldingManager.buttonPressed == false){
             objectHoldingManager.touchingObject = null;
         }
     }
+
+
 }
