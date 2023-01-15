@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class OnButtonPress : MonoBehaviour
 {
+    public ObjectHoldingManager objectHoldingManager;
+
     [Tooltip("Actions to check")]
     public InputAction action = null;
 
@@ -40,11 +42,13 @@ public class OnButtonPress : MonoBehaviour
 
     private void Pressed(InputAction.CallbackContext context)
     {
+        //objectHoldingManager.buttonPressed = true;
         OnPress.Invoke();
     }
 
     private void Released(InputAction.CallbackContext context)
     {
+        //objectHoldingManager.buttonPressed = false;
         OnRelease.Invoke();
     }
 }

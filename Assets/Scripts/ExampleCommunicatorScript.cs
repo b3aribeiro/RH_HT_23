@@ -8,6 +8,8 @@ public class ExampleCommunicatorScript : MonoBehaviour
     public SingularityManager mySingularityManager;
     DeviceSignature myDevice;
 
+    public ObjectHoldingManager objectHoldingManager;
+
     public bool isHolding = false;
     public CheckCollisionWithItem checkCollisionWithItem;
     
@@ -39,38 +41,24 @@ public class ExampleCommunicatorScript : MonoBehaviour
 
     public void SendMessageAsHolding(string message)
     {
-        print("BTEST: sendmessageasholding called");
-        print("BTEST: THIS IS HOLDING MESSAGE" + message);
-        print("BTEST: ISHOLDING STATE IS" + isHolding);
-        if(isHolding == true) 
-        {
-            print("BTEST: ISHOLDING PASSED TRUE FOR SENDMESSAGE");
-            if (message == "OBJ1_HOLD" || message == "OBJ2_HOLD" || message == "OBJ3_HOLD")
-            {
-                //mySingularityManager.sendMessage(message + "\n", myDevice);
-            }
-        } else if (isHolding == false)
-        {
-            print("BTEST: SENDMESSAGE EQUALS FALSE, SO NOTHING TO HOLD");
+
+        if(objectHoldingManager.buttonPressed == true && objectHoldingManager.touchingObject != null){
+            print ("here");       
         }
+        
+        // if(isHolding == true && (message == "OBJ1_HOLD" || message == "OBJ2_HOLD" || message == "OBJ3_HOLD")) 
+        // {
+        //     mySingularityManager.sendMessage(message + "\n", myDevice);
+        // } 
     }
 
-    public void SendMessageAsRelasing(string message)
-    {
-        isHolding = false;
-        print("BTEST: ISHOLDING SET TO FALSE FOR MESSAGERELEASE");
-        print("BTEST: THIS IS RELEASE MESSAGE" + message);
+    // public void SendMessageAsRelasing(string message)
+    // {
       
-        if (message == "OBJ1_RELEASE" || message == "OBJ2_RELEASE" || message == "OBJ3_RELEASE")
-        {
-            //mySingularityManager.sendMessage(message + "\n", myDevice);
-        }
+    //     if (message == "OBJ1_RELEASE" || message == "OBJ2_RELEASE" || message == "OBJ3_RELEASE")
+    //     {
+    //         mySingularityManager.sendMessage(message + "\n", myDevice);
+    //     }
     
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        isHolding = checkCollisionWithItem.isHoldingButItsDifferent;
-    }
+    // }
 }

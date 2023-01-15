@@ -6,6 +6,7 @@ public class CheckCollisionWithItem : MonoBehaviour
 {
     public ExampleCommunicatorScript _exampleComm;
     public bool isHoldingButItsDifferent = false;
+    public ObjectHoldingManager objectHoldingManager;
 
     // Start is called before the first frame update
     void Start()
@@ -20,15 +21,14 @@ public class CheckCollisionWithItem : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
      {
-         //print("BTEST: ISHOLDING VALUE IS: " + _exampleComm.isHolding);
-         print("BTEST: ISHOLDING VALUE IS: " + isHoldingButItsDifferent);
-         print("BTEST: HAS COLLIDED THE TRIGGER");
+         print("BTEST: HAS COLLIDED THE TRIGGER"); //ENTERED
          if (other.gameObject.CompareTag("Objects"))
          {
-            print("BTEST: INSIDE COMPARETAG IF FOR ENTER");
+            print("BTEST: INSIDE COMPARETAG IF FOR ENTER"); //ENTERED
             //_exampleComm.isHolding = true;
             isHoldingButItsDifferent = true;
-            print("BTEST: ISHOLDING SET TO TRUE");
+            //GlobalVariable.holdingState = true;
+            print("holding state enter is" + isHoldingButItsDifferent);
              
          } 
      }
@@ -40,6 +40,7 @@ public class CheckCollisionWithItem : MonoBehaviour
          {
             print("BTEST: INSIDE COMPARETAG IF FOR EXIT");
             _exampleComm.isHolding = false;
+            //GlobalVariable.holdingState = false;
              print("BTEST: ISHOLDING SET TO FALSE");
          } 
      }
