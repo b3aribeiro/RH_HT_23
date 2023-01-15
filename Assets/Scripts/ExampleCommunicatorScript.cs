@@ -9,6 +9,8 @@ public class ExampleCommunicatorScript : MonoBehaviour
     DeviceSignature myDevice;
 
     public bool isHolding = false;
+    public CheckCollisionWithItem checkCollisionWithItem;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -37,30 +39,31 @@ public class ExampleCommunicatorScript : MonoBehaviour
 
     public void SendMessageAsHolding(string message)
     {
-        print("sendmessageasholding called");
-        print("THIS IS HOLDING MESSAGE" + message);
+        print("BTEST: sendmessageasholding called");
+        print("BTEST: THIS IS HOLDING MESSAGE" + message);
+        print("BTEST: ISHOLDING STATE IS" + isHolding);
         if(isHolding == true) 
         {
-            print("ISHOLDING PASSED TRUE FOR SENDMESSAGE");
+            print("BTEST: ISHOLDING PASSED TRUE FOR SENDMESSAGE");
             if (message == "OBJ1_HOLD" || message == "OBJ2_HOLD" || message == "OBJ3_HOLD")
             {
-                mySingularityManager.sendMessage(message + "\n", myDevice);
+                //mySingularityManager.sendMessage(message + "\n", myDevice);
             }
         } else if (isHolding == false)
         {
-            print("SENDMESSAGE EQUALS FALSE, SO NOTHING TO HOLD");
+            print("BTEST: SENDMESSAGE EQUALS FALSE, SO NOTHING TO HOLD");
         }
     }
 
     public void SendMessageAsRelasing(string message)
     {
         isHolding = false;
-        print("ISHOLDING SET TO FALSE FOR MESSAGERELEASE");
-        print("THIS IS RELEASE MESSAGE" + message);
+        print("BTEST: ISHOLDING SET TO FALSE FOR MESSAGERELEASE");
+        print("BTEST: THIS IS RELEASE MESSAGE" + message);
       
         if (message == "OBJ1_RELEASE" || message == "OBJ2_RELEASE" || message == "OBJ3_RELEASE")
         {
-            mySingularityManager.sendMessage(message + "\n", myDevice);
+            //mySingularityManager.sendMessage(message + "\n", myDevice);
         }
     
     }
@@ -68,6 +71,6 @@ public class ExampleCommunicatorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        isHolding = checkCollisionWithItem.isHoldingButItsDifferent;
     }
 }
