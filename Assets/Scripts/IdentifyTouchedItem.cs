@@ -15,7 +15,6 @@ public class IdentifyTouchedItem : MonoBehaviour
             objectHoldingManager.touchingObject = other.gameObject;
             exampleCommunicatorScript.SendMessageAsHolding(objectHoldingManager.touchingObject.name);
         }
-        
     }
 
     void OnTriggerExit(Collider other)
